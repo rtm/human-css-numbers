@@ -1,0 +1,25 @@
+{
+  "name": "@rtm/human-css-numbers",
+  "version": "0.1.0",
+  "description": "Human-friendly CSS classes for numbers and lengths",
+  "main": "index.js",
+  "scripts": {
+    "build": "postcss --use postcss-import --dir dist index.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtm/human-css-numbers.git"
+  },
+  "keywords": [
+    "css"
+  ],
+  "author": "rtm@gol.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rtm/human-css-numbers/issues"
+  },
+  "homepage": "https://github.com/rtm/human-css-numbers#readme",
+  "devDependencies": {
+  }
+}
