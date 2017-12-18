@@ -191,7 +191,7 @@ index.css: entry point for @rtm/human-css-numbers.
 [\-\31 \/7]    { --number: calc(-1 / 7); }
 [\-\31 \/8]    { --number: calc(-1 / 8); }
 [\-\31 \/9]    { --number: calc(-1 / 9); }
-[\-\31 \/10    { --number: calc(-1 / 10); }
+[\-\31 \/10]    { --number: calc(-1 / 10); }
 
 /* Support "10%" etc. */
 [\31 0\%]       { --length: 10%; }

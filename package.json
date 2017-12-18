@@ -1,6 +1,6 @@
 {
   "name": "@rtm/human-css-numbers",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Human-friendly CSS attributes for numbers and lengths",
   "main": "index.js",
   "scripts": {
