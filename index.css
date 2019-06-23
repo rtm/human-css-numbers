@@ -3,58 +3,45 @@ index.css: entry point for @rtm/human-css-numbers.
 */
 
 /* UNITS */
-[em]                   { --length: calc(var(--number) * 1em);  }
-[in], [inch], [inches] { --length: calc(var(--number) * 1in);  }
-[rem]                  { --length: calc(var(--number) * 1rem); }
-[px]                   { --length: calc(var(--number) * 1px);  }
-[pc], [picas]          { --length: calc(var(--number) * 1pc);  }
-[pt], [points]         { --length: calc(var(--number) * 1pt);  }
-[px], [pixels]         { --length: calc(var(--number) * 1px);  }
-[ex]                   { --length: calc(var(--number) * 1ex);  }
-[q]                    { --length: calc(var(--number) * 1q;)   }
-[cm], [cms], [centimeter], [centimeters]   { --length: calc(var(--number) * 1cm);  }
-[mm], [mms], [millimeter], [millimeters]   { --length: calc(var(--number) * 1mm);  }
-[ch]                   { --length: calc(var(--number) * 1ch);   }
-[vw]                   { --length: calc(var(--number) * 1vw);   }
-[vh]                   { --length: calc(var(--number) * 1vh);   }
-[vmin]                 { --length: calc(var(--number) * 1vmin); }
-[vmax]                 { --length: calc(var(--number) * 1vmax); }
+[ch]       { --length: calc(var(--number) * 1ch);   }
+[cm]       { --length: calc(var(--number) * 1cm);   }
+[em]       { --length: calc(var(--number) * 1em);   }
+[ex]       { --length: calc(var(--number) * 1ex);   }
+[in]       { --length: calc(var(--number) * 1in);   }
+[mm]       { --length: calc(var(--number) * 1mm);   }
+[pc]       { --length: calc(var(--number) * 1pc);   }
+[pt]       { --length: calc(var(--number) * 1pt);   }
+[px]       { --length: calc(var(--number) * 1px);   }
+[q]        { --length: calc(var(--number) * 1q;)    }
+[rem]      { --length: calc(var(--number) * 1rem);  }
+[vh]       { --length: calc(var(--number) * 1vh);   }
+[vmax]     { --length: calc(var(--number) * 1vmax); }
+[vmin]     { --length: calc(var(--number) * 1vmin); }
+[vw]       { --length: calc(var(--number) * 1vw);   }
 
-[ms], [milliseconds]   { --length: calc(var(--number) * 1ms);   }
-[s], [seconds], [second] { --length: calc(var(--number) * 1s;)  }
+[ms]       { --length: calc(var(--number) * 1ms);   }
+[s]        { --length: calc(var(--number) * 1s;)    }
 
-[deg], [degrees]       { --length: calc(var(--number) * 1deg);  }
-[grad], [gradian], [gradians] { --length: calc(var(--number) * 1grad); }
-[rad], [radian], [radians]    { --length: calc(var(--number) * 1rad);  }
-[turn], [turns]        { --length: calc(var(--number) * 1turn); }
+[deg]      { --length: calc(var(--number) * 1deg);  }
+[grad]     { --length: calc(var(--number) * 1grad); }
+[rad]      { --length: calc(var(--number) * 1rad);  }
+[turn]     { --length: calc(var(--number) * 1turn); }
 
-* {
+[ch], [cm], [em], [ex], [in], [mm], [pc], [pt], [px], [q], [rem], [vh], [vmax], [vmin], [vmax],
+[ms], [s],
+[deg], [grad], [rad], [turn],
+[ten], [twenty], [thirty], [forty], [fifty], [sixty], [seventy], [eighty], [ninety],
+[zero], [one], [two], [three], [four], [five], [six], [seven], [eight], [nine],
+[eleven], [twelve], [thirteen], [fourteen], [fifteen], [sixteen], [seventeen], [eighteen], [nineteen],
+[halves], [half], [thirds], [third], [fourths], [fourth], [fifths], [fifth], [sixths], [sixth], [sevenths], [seventh], [eighths], [eighth], [ninths], [ninth], [tenths], [tenth],
+[nothing], {
   --denominator: 1;
-  --sign: +1;
-  --ones: 1;
+  --sign: 1;
+  --ones: 0;
   --tens: 0;
-  --hundreds: 0;
 
-  --number: calc(var(--unsigned-number) * var(--sign));
+  --number: calc((((10 * var(--tens)) + var(--ones)) / var(--denominator)) * var(--sign));
 }
-
-:not([hundred]) {
-  --unsigned-number: calc((10 * var(--tens) + var(--ones)) / var(--denominator));
-}
-
-/* NUMBERS */
-
-[hundred]   { --unsigned-number: calc(100 * var(--ones) + 10 * var(--tens)); --ones: 0; }
-
-[ten]       { --tens: 1; --ones: 0; }
-[twenty]    { --tens: 2; --ones: 0; }
-[thirty]    { --tens: 3; --ones: 0; }
-[forty]     { --tens: 4; --ones: 0; }
-[fifty]     { --tens: 5; --ones: 0; }
-[sixty]     { --tens: 6; --ones: 0; }
-[seventy]   { --tens: 7; --ones: 0; }
-[eighty]    { --tens: 8; --ones: 0; }
-[ninety]    { --tens: 9; --ones: 0; }
 
 /* "Ones" values are used in calculating unsigned number. */
 [zero]      { --number: 0; }
@@ -77,9 +64,19 @@ index.css: entry point for @rtm/human-css-numbers.
 [eighteen]  { --ones: 18; }
 [nineteen]  { --ones: 19; }
 
-/* If `hundred` is present, they apply to it. */
+/* NUMBERS */
+[ten]       { --tens: 1; }
+[twenty]    { --tens: 2; }
+[thirty]    { --tens: 3; }
+[forty]     { --tens: 4; }
+[fifty]     { --tens: 5; }
+[sixty]     { --tens: 6; }
+[seventy]   { --tens: 7; }
+[eighty]    { --tens: 8; }
+[ninety]    { --tens: 9; }
+
 /* FRACTIONS */
-[\30 .1]    { --unsigned-number: 0.1;  }
+[\30 .1]   { --unsigned-number: 0.1;  }
 [\30 .2]   { --unsigned-number: 0.2;  }
 [\30 .25]  { --unsigned-number: 0.25; }
 [\30 .3]   { --unsigned-number: 0.3;  }
@@ -138,36 +135,36 @@ index.css: entry point for @rtm/human-css-numbers.
 [\31 000] { --unsigned-number: 1000; }
 [\32 000] { --unsigned-number: 2000; }
 
-/* /\* Negative numberbs. *\/ */
-/* [-]\31     { --number: -1; } */
-/* [-]\32     { --number: -2; } */
-/* [-]\33     { --number: -3; } */
-/* [-]\34     { --number: -4; } */
-/* [-]\35     { --number: -5; } */
-/* [-]\36     { --number: -6; } */
-/* [-]\37     { --number: -7; } */
-/* [-]\38     { --number: -8; } */
-/* [-]\39     { --number: -9; } */
-/* [-]\31 0   { --number: -10; } */
-/* [-]\32 0   { --number: -20; } */
-/* [-]\33 0   { --number: -30; } */
-/* [-]\34 0   { --number: -40; } */
-/* [-]\35 0   { --number: -50; } */
-/* [-]\36 0   { --number: -60; } */
-/* [-]\37 0   { --number: -70; } */
-/* [-]\38 0   { --number: -80; } */
-/* [-]\39 0   { --number: -90; } */
-/* [-]\31 00  { --number: -100; } */
-/* [-]\32 00  { --number: -200; } */
-/* [-]\33 00  { --number: -300; } */
-/* [-]\34 00  { --number: -400; } */
-/* [-]\35 00  { --number: -500; } */
-/* [-]\36 00  { --number: -600; } */
-/* [-]\37 00  { --number: -700; } */
-/* [-]\38 00  { --number: -800; } */
-/* [-]\39 00  { --number: -900; } */
-/* [-]\31 000 { --number: -1000; } */
-/* [-]\32 000 { --number: -2000; } */
+/* Negative numberbs. */
+[\-1]     { --number: -1; }
+[\-2]     { --number: -2; }
+[\-3]     { --number: -3; }
+[\-4]     { --number: -4; }
+[\-5]     { --number: -5; }
+[\-6]     { --number: -6; }
+[\-7]     { --number: -7; }
+[\-8]     { --number: -8; }
+[\-9]     { --number: -9; }
+[\-10]    { --number: -10; }
+[\-20]    { --number: -20; }
+[\-30]    { --number: -30; }
+[\-40]    { --number: -40; }
+[\-50]    { --number: -50; }
+[\-60]    { --number: -60; }
+[\-70]    { --number: -70; }
+[\-80]    { --number: -80; }
+[\-90]    { --number: -90; }
+
+[\-100]   { --number: -100; }
+[\-200]   { --number: -200; }
+[\-300]   { --number: -300; }
+[\-400]   { --number: -400; }
+[\-500]   { --number: -500; }
+[\-600]   { --number: -600; }
+[\-700]   { --number: -700; }
+[\-800]   { --number: -800; }
+[\-900]   { --number: -900; }
+[\-1000]  { --number: -1000; }
 
 /* PERCENTAGES */
 [full]         { --number: 1; }
@@ -191,9 +188,9 @@ index.css: entry point for @rtm/human-css-numbers.
 [\-\31 \/7]    { --number: calc(-1 / 7); }
 [\-\31 \/8]    { --number: calc(-1 / 8); }
 [\-\31 \/9]    { --number: calc(-1 / 9); }
-[\-\31 \/10]    { --number: calc(-1 / 10); }
+[\-\31 \/10]   { --number: calc(-1 / 10); }
 
-/* Support "10%" etc. */
+/* Explicit percentages */
 [\31 0\%]       { --length: 10%; }
 [\32 0\%]       { --length: 20%; }
 [\32 5\%]       { --length: 25%; }
@@ -207,18 +204,16 @@ index.css: entry point for @rtm/human-css-numbers.
 [\39 0\%]       { --length: 90%; }
 [\31 00\%]      { --length: 100%; }
 
-/* [-]\31 0\%      { --length: -10%; } */
-/* [-]\32 0\%      { --length: -20%; } */
-/* [-]\32 5\%      { --length: -25%; } */
-/* [-]\33 0\%      { --length: -30%; } */
-/* [-]\34 0\%      { --length: -40%; } */
-/* [-]\34 0\%      { --length: -50%; } */
-/* [-]\36 0\%      { --length: -60%; } */
-/* [-]\37 0\%      { --length: -70%; } */
-/* [-]\37 5\%      { --length: -75%; } */
-/* [-]\38 0\%      { --length: -80%; } */
-/* [-]\39 0\%      { --length: -90%; } */
-/* [-]\31 00\%     { --lenngth: -100%; } */
+[\-\31 0\%]     { --length: -10%; }
+[\-\32 0\%]     { --length: -20%; }
+[\-\33 0\%]     { --length: -30%; }
+[\-\34 0\%]     { --length: -40%; }
+[\-\35 0\%]     { --length: -50%; }
+[\-\36 0\%]     { --length: -60%; }
+[\-\37 0\%]     { --length: -70%; }
+[\-\38 0\%]     { --length: -80%; }
+[\-\39 0\%]     { --length: -90%; }
+[\-\31 00\%]    { --length: -100%; }
 
 [\30]           { --length: 0; }
 

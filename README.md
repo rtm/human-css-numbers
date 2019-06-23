@@ -2,6 +2,7 @@ Human CSS Numbers
 ======
 
 Human CSS Numbers is a set of CSS micro-attributes for specifying numbers of lengths in human-friendly form.
+It is a sister package to `human-css-colors` and `human-css-classes` and is used by the latter.
 
 Summary
 -------
@@ -52,6 +53,7 @@ Installation
 ------------
 
     npm install --save-dev @rtm/human-css-numbers
+    yarn add @rtm/human-css-numbers
 
 Then, in some file that a CSS pre-processor will process:
 
